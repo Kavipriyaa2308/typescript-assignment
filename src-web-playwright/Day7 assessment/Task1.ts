@@ -8,6 +8,7 @@ let context = await browser.newContext()
 let page =await context.newPage()
 
 await page.goto("https://orangehrm.com/book-a-free-demo")
+await page.locator("xpath=//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']").click()
 
 await page.locator("xpath=//input[@id='Form_getForm_FullName']").fill("Kavipriyaa")
 await page.locator("xpath=//input[@id='Form_getForm_Email']").fill("kavi@gmail.com")

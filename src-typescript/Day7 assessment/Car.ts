@@ -76,7 +76,7 @@ car2.brake();
 car1.printCarDetails();
 car2.printCarDetails();
 
-//Compare speed of 2 cars
+//Compare speed of 2 carsS
 if(car1.Speed >car2.Speed){
     console.log("Swift has the higher speed.");
 }

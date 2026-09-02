@@ -6,16 +6,16 @@ let page=await context.newPage()
  
 //navigate to URL
 await page.goto("https://nasscom.in/")
- 
+
 //navigate to Login and Register page
- 
+await page.locator("xpath=//button[normalize-space()='Accept All']").click();
 //Click login
 await page.locator("xpath=//a[@id='myLoginBtn']").first().click();
 //Click register
 await page.locator("xpath=//a[text()='REGISTER']").first().click();
+
  
- 
-//enter firstname
+//enter firstname (we can also use placeholder for xpath)
 await page.locator("xpath=//input[@id='edit-field-fname-reg-0-value--2']").fill("admin")
 //enter lastname
 await page.locator("xpath=//input[@id='edit-field-lname-0-value--2']").fill("pass")
