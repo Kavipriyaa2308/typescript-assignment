@@ -9,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
+    "playwright": "^1.62.1",
     "typescript": "^7.0.2"
   }
 }
