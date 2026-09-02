@@ -1,4 +1,4 @@
-import { Car } from "./Car.js";
+/*import { Car } from "./Car.js";
 //Create Car Objects
 let car1=new Car(
     "TN01AB1234","Swift","White",750000,50
@@ -63,4 +63,4 @@ console.log("Car 1 Speed after modified: "+ car1.getSpeed()+" km/h");
 //one car doesnt after another car speed
 car1.setSpeed(100);
 console.log("Car1 Speed: "+ car1.getSpeed()+" km/h");
-console.log("Car2 Speed: "+ car2.getSpeed()+" km/h");
+console.log("Car2 Speed: "+ car2.getSpeed()+" km/h");*/

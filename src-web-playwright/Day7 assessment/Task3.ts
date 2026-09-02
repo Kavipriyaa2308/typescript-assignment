@@ -12,7 +12,7 @@ await page.goto("https://nasscom.in/")
 //Click login
 await page.locator("xpath=//a[@id='myLoginBtn']").first().click();
 //Click register
-await page.locator('text=REGISTER').first().click();
+await page.locator("xpath=//a[text()='REGISTER']").first().click();
  
  
 //enter firstname
