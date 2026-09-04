@@ -14,7 +14,7 @@ await page.locator("xpath=//button[@id='onetrust-accept-btn-handler']").click();
 await page.locator("xpath=//div[text()='My Account']").hover();
 const [newPage]=await Promise.all([context.waitForEvent("page"), page.locator("xpath=//div[text()='Banking with Citi']").click()])
  
-//await newPage.waitForLoadState();
+
  
 //console.log(await newPage.title());
  
