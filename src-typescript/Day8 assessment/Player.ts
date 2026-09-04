@@ -79,3 +79,78 @@ for(let player of players){
     console.log("-------------------------------------------");
 }
 console.log("-------------------------------------------");
+
+//Find Player
+function findPlayer(playerId: number): void {
+    let player = players.find(
+       (player) => player.playerId == playerId
+   );
+   if(player){
+    player.displayPlayer();
+   }
+   else{
+    console.log("Player not found");
+   }
+}
+findPlayer(103);
+console.log("-------------------------------------------");
+// Change Harry Kane's team
+console.log("Before Transfer:");
+console.log("Name: "+player3.playerName);
+console.log("Team: "+player3.team.teamName);
+player3.changeTeam(team4);
+console.log("After Transfer:");
+player3.displayPlayer();
+console.log("-------------------------------------------");
+// Find players by Team
+function getPlayersByTeam(teamId: number) {
+   let team = teams.find(
+       (team) => team.teamId === teamId
+   );
+   if (!team) {
+       console.log("Team not found");
+       return;
+   }
+   let teamPlayers = players.filter(
+       (player) => player.team.teamId === teamId
+   );
+   
+   console.log("Team: "+team.teamName);
+   console.log("Players:");
+   for (let player of teamPlayers) {
+       console.log(player.playerName);
+   }
+}
+console.log("Team 1 Players: ")
+getPlayersByTeam(1);
+console.log("");
+console.log("-------------------------------------------");
+// Liverpool after Harry Kane transfer
+console.log("Team 4 Players: ")
+getPlayersByTeam(4);
+console.log("");
+console.log("-------------------------------------------");
+
+
+// Final Challenge - Display the team details
+function displayTeamDetails(teamId: number): void {
+   let team = teams.find(
+       (team) => team.teamId === teamId
+   );
+   if (!team) {
+       console.log("Team not found");
+       return;
+   }
+   console.log("Team ID: "+team.teamId);
+   console.log("Team Name: "+team.teamName);
+   console.log("Players:");
+   let teamPlayers = players.filter(
+       (player) => player.team.teamId === teamId
+   );
+   for (let player of teamPlayers) {
+       console.log(player.playerId +" - "+player.playerName);
+   }
+}
+console.log("Team 1 Players : ")
+displayTeamDetails(1);
+console.log("-------------------------------------------");

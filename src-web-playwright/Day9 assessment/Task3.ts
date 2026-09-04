@@ -15,20 +15,37 @@ const fillFrame=page.frameLocator("xpath=//iframe[@name='pat']")
 
 await fillFrame.locator("xpath=//input[@placeholder='First Name']").fill("Kavi");
 await fillFrame.locator("xpath=//input[@placeholder='Last Name']").fill("Priyaa");
-await fillFrame.locator("xpath=//input[@title='Date of Birth']").fill("2026-09-03");
+await fillFrame.locator("xpath=//input[@title='Date of Birth']").fill("2026-09-04");
 await fillFrame.locator("xpath=//select[@title='Birth Sex']").selectOption({label:"Female"});
-await fillFrame.locator("xpath=//button[@name='create']]").click();
-await fillFrame.locator("xpath=//button[text()='Confirm Create New Patient']]").click();
+await fillFrame.locator("xpath=//button[@name='create']").click();
 
 const patientFrame=page.frameLocator("xpath=//iframe[@id='modalframe']")
-const birthdaymessage=patientFrame.locator("body").innerText();
+//await patientFrame.locator("xpath=//button[text()='Confirm Create New Patient']").click();
+
+//handle alert here 
+page.on("dialog",async dialog=>{
+    let actualAlertMessage=dialog.message();
+    console.log(actualAlertMessage);
+
+    await dialog.accept()
+});
+
+await patientFrame.locator("xpath=//button[text()='Confirm Create New Patient']").click();
+
+await page.waitForTimeout(5000);
+//Frame for birthdaybox
+const messageFrame= page.frameLocator("xpath=//iframe[@name='bdayreminder']")
+const birthdaymessage= await messageFrame.locator("xpath=//p[@class='h2']").innerText();
 console.log(birthdaymessage);
 
-await page.locator("xpath=//div[@class='closeDlgIframe']]").click();
+await page.locator("xpath=//div[@class='closeDlgIframe']").click();
 
-
-const result=await page.locator("xpath=//span[contains(text(),'Medical Record Dashboard - Kavi Priyaa']").innerText();
+//Frame for dashboard
+const dashboardFrame=page.frameLocator("xpath=//iframe[@name='pat']")
+const result=await dashboardFrame.locator("xpath=//span[@class='navbar-brand mb-0 h1']").innerText(); // It will call only that name of the patient
+//const result1=await dashboardFrame.locator("xpath=//span[text()='Medical Record Dashboard - Kavi Priyaa']").innerText();
 console.log(result);
+//console.log(result1);
 
 await page.waitForTimeout(2000);
 await browser.close()
