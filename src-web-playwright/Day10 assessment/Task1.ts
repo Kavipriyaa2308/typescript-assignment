@@ -18,6 +18,7 @@ await page.locator("css=button[type='submit']").click()
 //for css text wants to be denoted like this only
 let errorMsg = await page.locator("text=Enter valid phone number").innerText();
 console.log("Password Error:", errorMsg);
-
+//let message:string=await page.getByText("Enter vaid phone number").innerTExt();
+//let message=await page.getByTest("valid phone",{exact:false}).innerText();
 await page.waitForTimeout(2000);
 await browser.close()
