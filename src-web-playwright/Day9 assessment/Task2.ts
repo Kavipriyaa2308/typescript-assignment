@@ -7,7 +7,7 @@ let page=await context.newPage()
 //navigate to URL
 await page.goto("https://secure1.inmotionhosting.com/index/login")
 let promisePage = page.waitForEvent("popup")
-await page.locator("xpath=//span[normalise-space()=' Visit Our Support Center']").click();
+await page.locator("//span[normalise-space()=' Visit Our Support Center']"[2]).click();
 
 const newPage=await promisePage;
 await newPage.locator("xpath=//button[text()='No Thanks']").click();
